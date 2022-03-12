@@ -4,10 +4,20 @@ export class ContextMenu extends Menu {
   constructor() {
     super(".menu");
 
+    this.modules = [];
+
     document.body.addEventListener("contextmenu", (ev) => {
       ev.preventDefault();
       this.position = { x: ev.clientX, y: ev.clientY };
       this.open();
+    });
+
+    this.el.addEventListener("click", (ev) => {
+      const { target: item } = ev;
+      if (!item.dataset?.type) return;
+      const module = this.modules.find((m) => m.type === item.dataset.type);
+      module?.trigger();
+      this.close();
     });
   }
 
@@ -25,5 +35,6 @@ export class ContextMenu extends Menu {
 
   add(module) {
     this.el.insertAdjacentHTML("beforeend", module.toHTML());
+    this.modules.push(module);
   }
 }
