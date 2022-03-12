@@ -14,8 +14,8 @@ export class ContextMenu extends Menu {
   open() {
     if (!(this.el.hasChildNodes() && this.position)) return;
 
-    this.el.style.top = this.position.y;
-    this.el.style.left = this.position.x;
+    this.el.style.top = `${this.position.y}px`;
+    this.el.style.left = `${this.position.x}px`;
     this.el.classList.add("open");
   }
 
