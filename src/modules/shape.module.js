@@ -1,15 +1,13 @@
-// addShape() для создания фигуры
-// removeShape() для удаления
-
 import { Module } from "../core/module";
 import { random, getRandomColor } from "../utils";
 
 export class ShapeModule extends Module {
   constructor() {
+    super("shape", "Создать фигуоу");
     this.shape = document.createElement("div");
   }
 
-  addShape() {
+  trigger() {
     let shapeWidth = random(20, 200);
     let shapeHeight = random(20, 200);
     let shapeX = random(
@@ -29,8 +27,5 @@ export class ShapeModule extends Module {
     this.shape.style.top = `${shapeY}px`;
     this.shape.style.left = `${shapeX}px`;
     document.body.append(this.shape);
-  }
-  removeShape() {
-    document.body.remove(this.shape);
   }
 }
