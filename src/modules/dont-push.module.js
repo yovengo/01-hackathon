@@ -27,10 +27,10 @@ export class DontPush extends Module {
             this.divElement.textContent = 'Перестань нажимать!'
             document.body.prepend(this.divElement)
         } else if (this.count === 2) {
-            this.divElement.textContent = 'Я сказал хватит!'
+            this.divElement.textContent = 'Я сказала хватит!'
             document.body.prepend(this.divElement)
         } else if (this.count === 3) {
-            this.divElement.textContent = 'Ну, я тебя предупреждал'
+            this.divElement.textContent = 'Ну, я тебя предупреждала...'
             document.body.prepend(this.divElement)
         } else {
             this.count = 0
